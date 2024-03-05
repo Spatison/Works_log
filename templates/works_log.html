@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Works log</h2>
+    {% for i in range(1) %}
+      <h4>Action #{{ i + 1 }}</h4>
+      <table>
+        <thead>
+          <th>Title of activity</th>
+          <th>Team leader</th>
+          <th>Duration</th>
+          <th>List of collaborators</th>
+          <th>Is finished</th>
+        </thead>
+        <tbody>
+          <td>{{ work[i].job }}</td>
+          <td>{{ user[work[i].team_leader].surname }} {{ user[work[i].team_leader].name }}</td>
+          <td>{{ work[i].work_size }} hours</td>
+          <td>{{ work[i].collaborators }}</td>
+          <td>{{ work[i].is_finished }}</td>
+        </tbody>
+      </table>
+    {% endfor %}
+{% endblock %}
